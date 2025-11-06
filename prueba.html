@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dos Cuadritos Girando</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .square.large {
+            width: 200px;
+            height: 200px;
+        }
+
+        .square-fast {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            animation: rotate 1.5s linear infinite;
+        }
+
+        .square-slow {
+            background: linear-gradient(45deg, #43e97b 0%, #38f9d7 100%);
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .title {
+            position: absolute;
+            top: 50px;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .labels {
+            position: absolute;
+            bottom: 50px;
+            display: flex;
+            gap: 150px;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">¡Dos Cuadritos Girando!</h1>
+    <div class="container">
+        <div class="square square-fast" onclick="this.classList.toggle('large')"></div>
+        <div class="square square-slow" onclick="this.classList.toggle('large')"></div>
+    </div>
+    <div class="labels">
+        <span>Rápido ⚡</span>
+        <span>Lento 🐢</span>
+    </div>
+</body>
+</html>
